@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sri Vigna Raja Drones Pvt. Ltd. | Hyderabad</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Exo+2:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --sky: #0a1628;
+    --sky-mid: #0f2241;
+    --accent: #f97316;
+    --accent2: #22d3ee;
+    --green: #4ade80;
+    --white: #f0f4ff;
+    --muted: #8899bb;
+    --card: rgba(15,34,65,0.85);
+    --border: rgba(34,211,238,0.15);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Exo 2', sans-serif;
+    background: var(--sky);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 4vw;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: .6rem;
+  }
+  .nav-logo .drone-icon { font-size: 1.6rem; }
+  .nav-logo span {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--accent2);
+    line-height: 1.1;
+  }
+  .nav-logo small { display: block; font-size: .65rem; color: var(--muted); font-weight: 400; font-family: 'Exo 2', sans-serif; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted);
+    font-size: .85rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--accent2); }
+  .nav-cta {
+    background: var(--accent); color: #fff;
+    border: none; padding: .5rem 1.2rem; border-radius: 4px;
+    font-family: 'Exo 2', sans-serif; font-weight: 700; font-size: .82rem;
+    cursor: pointer; text-transform: uppercase; letter-spacing: .06em;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: #ea580c; }
+
+  /* ─── HERO ─── */
+  #home {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+    padding: 120px 6vw 80px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(34,211,238,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 10% 80%, rgba(249,115,22,0.07) 0%, transparent 60%),
+      linear-gradient(160deg, #0a1628 0%, #061020 100%);
+  }
+  .grid-lines {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(34,211,238,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,211,238,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .drone-float {
+    position: absolute; right: 5vw; top: 50%; transform: translateY(-50%);
+    font-size: clamp(8rem, 20vw, 18rem);
+    opacity: 0.07; z-index: 0;
+    animation: floatDrone 6s ease-in-out infinite;
+    user-select: none;
+  }
+  @keyframes floatDrone {
+    0%,100% { transform: translateY(-50%) rotate(-3deg); }
+    50% { transform: translateY(-55%) rotate(3deg); }
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 680px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: .4rem;
+    background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.3);
+    color: var(--accent2); padding: .35rem .8rem; border-radius: 2px;
+    font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp .6s ease both;
+  }
+  .hero-badge::before { content: '●'; font-size: .5rem; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+  h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 700; line-height: .95;
+    animation: fadeUp .7s .1s ease both;
+  }
+  h1 .accent-word { color: var(--accent); display: block; }
+  h1 .accent2-word { color: var(--accent2); }
+  .hero-sub {
+    margin-top: 1.2rem; font-size: 1.1rem; color: var(--muted); font-weight: 300;
+    max-width: 500px; line-height: 1.7;
+    animation: fadeUp .7s .2s ease both;
+  }
+  .hero-btns {
+    display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;
+    animation: fadeUp .7s .3s ease both;
+  }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+    border: none; padding: .8rem 2rem; border-radius: 4px;
+    font-family: 'Exo 2', sans-serif; font-weight: 700; font-size: .9rem;
+    cursor: pointer; text-transform: uppercase; letter-spacing: .06em;
+    text-decoration: none; display: inline-block;
+    transition: transform .15s, background .2s;
+  }
+  .btn-primary:hover { background: #ea580c; transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--accent2);
+    border: 1px solid rgba(34,211,238,0.4); padding: .8rem 2rem; border-radius: 4px;
+    font-family: 'Exo 2', sans-serif; font-weight: 600; font-size: .9rem;
+    cursor: pointer; text-transform: uppercase; letter-spacing: .06em;
+    text-decoration: none; display: inline-block;
+    transition: background .2s, transform .15s;
+  }
+  .btn-outline:hover { background: rgba(34,211,238,0.08); transform: translateY(-2px); }
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 3rem; flex-wrap: wrap;
+    animation: fadeUp .7s .4s ease both;
+  }
+  .stat { }
+  .stat .num {
+    font-family: 'Rajdhani', sans-serif; font-size: 2rem; font-weight: 700; color: var(--accent2);
+    line-height: 1;
+  }
+  .stat .label { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-top: .2rem; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(24px); }
+    to { opacity:1; transform: translateY(0); }
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 100px 6vw; }
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: .7rem; color: var(--accent); letter-spacing: .2em; text-transform: uppercase;
+    margin-bottom: .8rem;
+  }
+  .section-label::before { content: '// '; }
+  h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  h2 em { font-style: normal; color: var(--accent2); }
+  .section-desc { color: var(--muted); font-size: 1rem; max-width: 560px; line-height: 1.7; }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--sky-mid); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    align-items: center; margin-top: 3rem;
+  }
+  .about-text p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+  .about-text strong { color: var(--white); }
+  .about-visual {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .about-card {
+    background: rgba(34,211,238,0.05);
+    border: 1px solid var(--border);
+    padding: 1.5rem; border-radius: 8px;
+    text-align: center;
+  }
+  .about-card .icon { font-size: 2rem; margin-bottom: .6rem; }
+  .about-card .label { font-size: .78rem; color: var(--muted); font-weight: 500; letter-spacing: .06em; }
+  .about-card .val { font-family: 'Rajdhani',sans-serif; font-size: 1.5rem; color: var(--accent2); font-weight: 700; }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--sky); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem;
+  }
+  .service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: border-color .3s, transform .2s;
+  }
+  .service-card:hover { border-color: rgba(34,211,238,0.4); transform: translateY(-4px); }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  .service-card.agri::before { background: linear-gradient(90deg, var(--green), transparent); }
+  .service-card.media::before { background: linear-gradient(90deg, var(--accent), transparent); }
+  .service-card.survey::before { background: linear-gradient(90deg, var(--accent2), transparent); }
+  .service-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .service-card h3 {
+    font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; font-weight: 700;
+    margin-bottom: .4rem;
+  }
+  .service-card.agri h3 { color: var(--green); }
+  .service-card.media h3 { color: var(--accent); }
+  .service-card.survey h3 { color: var(--accent2); }
+  .service-tag {
+    display: inline-block; font-size: .65rem; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: .15rem .5rem; border-radius: 2px; margin-bottom: 1rem;
+  }
+  .agri .service-tag { background: rgba(74,222,128,0.12); color: var(--green); border: 1px solid rgba(74,222,128,0.2); }
+  .media .service-tag { background: rgba(249,115,22,0.12); color: var(--accent); border: 1px solid rgba(249,115,22,0.2); }
+  .survey .service-tag { background: rgba(34,211,238,0.12); color: var(--accent2); border: 1px solid rgba(34,211,238,0.2); }
+  .service-items { list-style: none; margin-top: 1rem; }
+  .service-items li {
+    padding: .55rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: .9rem; color: var(--muted);
+    display: flex; align-items: center; gap: .6rem;
+  }
+  .service-items li::before { content: '→'; font-size: .75rem; }
+  .agri .service-items li::before { color: var(--green); }
+  .media .service-items li::before { color: var(--accent); }
+  .survey .service-items li::before { color: var(--accent2); }
+
+  /* ─── CTA STRIP ─── */
+  .cta-strip {
+    background: linear-gradient(135deg, var(--sky-mid) 0%, rgba(15,34,65,0.6) 100%);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    padding: 80px 6vw;
+  }
+  .cta-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .cta-card {
+    border: 1px solid var(--border); border-radius: 10px; padding: 2rem;
+    display: flex; flex-direction: column; gap: 1rem;
+    transition: border-color .3s, background .3s;
+    background: rgba(10,22,40,0.4);
+  }
+  .cta-card:hover { border-color: rgba(249,115,22,0.4); background: rgba(249,115,22,0.04); }
+  .cta-card .for { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+  .cta-card h3 { font-family: 'Rajdhani',sans-serif; font-size: 1.4rem; font-weight: 700; }
+  .cta-card p { color: var(--muted); font-size: .87rem; line-height: 1.6; flex: 1; }
+  .cta-btn {
+    display: inline-block; padding: .7rem 1.4rem; border-radius: 4px;
+    font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    text-decoration: none; border: 1px solid;
+    transition: background .2s, color .2s;
+  }
+  .cta-btn.orange { color: var(--accent); border-color: var(--accent); }
+  .cta-btn.orange:hover { background: var(--accent); color: #fff; }
+  .cta-btn.cyan { color: var(--accent2); border-color: var(--accent2); }
+  .cta-btn.cyan:hover { background: var(--accent2); color: var(--sky); }
+  .cta-btn.green { color: var(--green); border-color: var(--green); }
+  .cta-btn.green:hover { background: var(--green); color: var(--sky); }
+
+  /* ─── GALLERY ─── */
+  #gallery { background: var(--sky-mid); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2, 180px);
+    gap: 1rem; margin-top: 2.5rem;
+  }
+  .gallery-item {
+    border-radius: 8px; border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: .5rem;
+    font-size: 2.5rem; color: rgba(255,255,255,0.15);
+    background: rgba(15,34,65,0.6);
+    transition: border-color .3s, color .3s;
+    cursor: pointer; position: relative; overflow: hidden;
+  }
+  .gallery-item:hover { border-color: rgba(34,211,238,0.35); color: rgba(255,255,255,0.4); }
+  .gallery-item.wide { grid-column: span 2; }
+  .gallery-item.tall { grid-row: span 2; }
+  .gallery-item span { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-family: 'Space Mono', monospace; }
+  .gallery-overlay {
+    position: absolute; inset: 0; background: rgba(34,211,238,0.05);
+    opacity: 0; transition: opacity .3s;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+  /* ─── CAREER ─── */
+  #career { background: var(--sky); }
+  .career-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+  .career-list { display: flex; flex-direction: column; gap: 1rem; }
+  .career-role {
+    padding: 1.4rem 1.6rem; border: 1px solid var(--border); border-radius: 8px;
+    background: var(--card); transition: border-color .3s;
+  }
+  .career-role:hover { border-color: rgba(249,115,22,0.35); }
+  .career-role h4 { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--accent2); }
+  .career-role .meta { font-size: .75rem; color: var(--muted); margin: .3rem 0 .6rem; letter-spacing: .05em; }
+  .career-role p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+  .career-form { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; }
+  .career-form h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--accent2); }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label { display: block; font-size: .75rem; color: var(--muted); margin-bottom: .4rem; letter-spacing: .08em; text-transform: uppercase; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: .7rem 1rem;
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    border-radius: 4px; color: var(--white); font-family: 'Exo 2', sans-serif; font-size: .9rem;
+    outline: none; transition: border-color .2s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent2); }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--sky-mid); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .contact-item .icon { font-size: 1.4rem; }
+  .contact-item h4 { font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 700; color: var(--accent2); }
+  .contact-item p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+  .contact-form { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; }
+  .contact-form h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; margin-bottom: 1.5rem; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #060e1a;
+    border-top: 1px solid var(--border);
+    padding: 3rem 6vw 1.5rem;
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem;
+  }
+  .footer-brand .logo-text {
+    font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--accent2);
+  }
+  .footer-brand p { color: var(--muted); font-size: .85rem; line-height: 1.7; margin-top: .6rem; }
+  .footer-col h5 { font-family: 'Rajdhani', sans-serif; font-weight: 700; color: var(--white); margin-bottom: 1rem; letter-spacing: .05em; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+  .footer-col ul a { text-decoration: none; color: var(--muted); font-size: .85rem; transition: color .2s; }
+  .footer-col ul a:hover { color: var(--accent2); }
+  .footer-bottom {
+    border-top: 1px solid var(--border); padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-bottom p { color: var(--muted); font-size: .78rem; }
+  .footer-bottom .brand-accent { color: var(--accent2); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .services-grid, .cta-cards { grid-template-columns: 1fr 1fr; }
+    .about-grid, .career-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2,1fr); }
+    .gallery-item.tall { grid-row: span 1; }
+    nav .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .services-grid, .cta-cards { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .about-visual { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-logo">
+    <span class="drone-icon">🚁</span>
+    <span>Sri Vigna Raja Drones<small>Private Limited · Hyderabad</small></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="grid-lines"></div>
+  <div class="drone-float">🚁</div>
+  <div class="hero-content">
+    <div class="hero-badge">Hyderabad's Premier Drone Technology Firm</div>
+    <h1>
+      <span class="accent2-word">We Don't</span>
+      <span class="accent-word">Just Fly.</span>
+      We Deliver.
+    </h1>
+    <p class="hero-sub">Precision-driven aerial solutions for agriculture, commercial mapping, and high-impact events. Bridging tradition with modern aerial intelligence.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">Explore Services</a>
+      <a href="#contact" class="btn-outline">Get a Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">3+</div><div class="label">Core Services</div></div>
+      <div class="stat"><div class="num">360°</div><div class="label">Aerial Coverage</div></div>
+      <div class="stat"><div class="num">100%</div><div class="label">DGCA Compliant</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="section-label">About Us</div>
+  <h2>Aerial Intelligence,<br><em>Grounded in Purpose</em></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p><strong>Sri Vigna Raja Drones Private Limited</strong> is a premier Hyderabad-based drone technology firm dedicated to revolutionizing the way we look at the land and the sky.</p>
+      <p>As a Private Limited entity, we bridge the gap between traditional practices and modern aerial intelligence, providing <strong>precision-driven solutions</strong> for agriculture, commercial mapping, and high-impact events.</p>
+      <p>We deliver <strong>actionable data and efficient services</strong> that save time, reduce costs, and maximize results — for farmers, businesses, and event organizers alike.</p>
+      <a href="#contact" class="btn-primary" style="margin-top:.5rem; display:inline-block;">Connect With Us</a>
+    </div>
+    <div class="about-visual">
+      <div class="about-card"><div class="icon">🌾</div><div class="val">AgriTech</div><div class="label">Precision Farming</div></div>
+      <div class="about-card"><div class="icon">🎬</div><div class="val">Aerial</div><div class="label">Media & Events</div></div>
+      <div class="about-card"><div class="icon">🗺️</div><div class="val">Survey</div><div class="label">& Mapping</div></div>
+      <div class="about-card"><div class="icon">🎓</div><div class="val">Training</div><div class="label">Pilot Programs</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label">Our Services</div>
+      <h2>What We <em>Offer</em></h2>
+    </div>
+    <p class="section-desc">Three specialized verticals — each powered by cutting-edge drone technology and expert operators.</p>
+  </div>
+  <div class="services-grid">
+
+    <!-- Agri -->
+    <div class="service-card agri">
+      <div class="service-icon">🌱</div>
+      <h3>Agri-Tech Solutions</h3>
+      <span class="service-tag">For Farmers</span>
+      <p style="color:var(--muted);font-size:.88rem;line-height:1.7;">Maximize your yield and reduce input costs with intelligent drone-based farm management.</p>
+      <ul class="service-items">
+        <li>Precision Crop Spraying</li>
+        <li>Granules Spreading</li>
+        <li>Crop Health Monitoring</li>
+      </ul>
+      <a href="#contact" class="cta-btn green" style="margin-top:1.4rem; display:inline-block;">Book Spraying Service</a>
+    </div>
+
+    <!-- Media -->
+    <div class="service-card media">
+      <div class="service-icon">🎥</div>
+      <h3>Aerial Media & Events</h3>
+      <span class="service-tag">For Events</span>
+      <p style="color:var(--muted);font-size:.88rem;line-height:1.7;">Transform your events and productions with breathtaking aerial visuals and memorable sky moments.</p>
+      <ul class="service-items">
+        <li>Aerial Videography</li>
+        <li>Flower Dropping</li>
+        <li>Drone Banner Display</li>
+        <li>LED Screen Display</li>
+      </ul>
+      <a href="#contact" class="cta-btn orange" style="margin-top:1.4rem; display:inline-block;">Get Event Quote</a>
+    </div>
+
+    <!-- Survey -->
+    <div class="service-card survey">
+      <div class="service-icon">📡</div>
+      <h3>Professional Survey & Mapping</h3>
+      <span class="service-tag">For Professionals</span>
+      <p style="color:var(--muted);font-size:.88rem;line-height:1.7;">High-accuracy aerial surveys and pilot training to power the next generation of drone professionals.</p>
+      <ul class="service-items">
+        <li>Aerial Survey & Mapping</li>
+        <li>Drone Pilot Training (Agri)</li>
+        <li>Drone Pilot Training (Survey)</li>
+      </ul>
+      <a href="#contact" class="cta-btn cyan" style="margin-top:1.4rem; display:inline-block;">Join Training Batch</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── CTA STRIP ─── -->
+<div class="cta-strip">
+  <div class="section-label">Take Action</div>
+  <h2>Ready to <em>Get Started?</em></h2>
+  <div class="cta-cards">
+    <div class="cta-card">
+      <div class="for">For Farmers</div>
+      <h3>Book a Spraying Service</h3>
+      <p>Schedule precision crop spraying or granule spreading for your fields and see the difference smart farming makes.</p>
+      <a href="#contact" class="cta-btn green">Book Now</a>
+    </div>
+    <div class="cta-card">
+      <div class="for">For Events</div>
+      <h3>Get an Events Quote</h3>
+      <p>Planning a wedding, festival, or corporate event? Get a quote for flower dropping, LED display, or aerial videography.</p>
+      <a href="#contact" class="cta-btn orange">Get Quote</a>
+    </div>
+    <div class="cta-card">
+      <div class="for">For Students</div>
+      <h3>Join Our Training Batch</h3>
+      <p>Become a certified drone pilot. Our next batch covers both agri and survey operations with hands-on practice.</p>
+      <a href="#contact" class="cta-btn cyan">Enroll Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── GALLERY ─── -->
+<section id="gallery">
+  <div class="section-label">Gallery</div>
+  <h2>Our Work in <em>Motion</em></h2>
+  <p class="section-desc">Photos and videos from our spraying runs, events, surveys, and training sessions across Telangana.</p>
+  <div class="gallery-grid">
+    <div class="gallery-item wide" style="background:linear-gradient(135deg,rgba(74,222,128,0.08),rgba(15,34,65,0.6));">
+      <div class="gallery-overlay"></div>
+      🌾<span>Agri Spraying</span>
+    </div>
+    <div class="gallery-item" style="background:linear-gradient(135deg,rgba(249,115,22,0.08),rgba(15,34,65,0.6));">
+      <div class="gallery-overlay"></div>
+      🎥<span>Aerial Video</span>
+    </div>
+    <div class="gallery-item tall" style="background:linear-gradient(135deg,rgba(34,211,238,0.08),rgba(15,34,65,0.6));">
+      <div class="gallery-overlay"></div>
+      📡<span>Survey Ops</span>
+    </div>
+    <div class="gallery-item" style="background:linear-gradient(135deg,rgba(249,115,22,0.1),rgba(15,34,65,0.6));">
+      <div class="gallery-overlay"></div>
+      🌸<span>Flower Drop</span>
+    </div>
+    <div class="gallery-item" style="background:linear-gradient(135deg,rgba(74,222,128,0.08),rgba(15,34,65,0.6));">
+      <div class="gallery-overlay"></div>
+      🎓<span>Training</span>
+    </div>
+    <div class="gallery-item" style="background:linear-gradient(135deg,rgba(34,211,238,0.1),rgba(15,34,65,0.6));">
+      <div class="gallery-overlay"></div>
+      💡<span>LED Display</span>
+    </div>
+  </div>
+  <p style="color:var(--muted); font-size:.82rem; margin-top:1.2rem; font-family:'Space Mono',monospace;">// Add your photos & videos here — this gallery is ready for your media uploads.</p>
+</section>
+
+<!-- ─── CAREER ─── -->
+<section id="career">
+  <div class="section-label">Career</div>
+  <h2>Fly With <em>Us</em></h2>
+  <p class="section-desc">Join a fast-growing drone technology company and build a career at the cutting edge of aerial intelligence.</p>
+  <div class="career-grid">
+    <div class="career-list">
+      <div class="career-role">
+        <h4>Drone Pilot – Agriculture</h4>
+        <div class="meta">📍 Hyderabad & Field Locations &nbsp;·&nbsp; Full Time</div>
+        <p>Operate agri drones for precision spraying and crop monitoring across client farms in Telangana and Andhra Pradesh.</p>
+      </div>
+      <div class="career-role">
+        <h4>Drone Pilot – Survey & Mapping</h4>
+        <div class="meta">📍 Hyderabad &nbsp;·&nbsp; Full Time / Contract</div>
+        <p>Conduct aerial surveys and generate high-resolution maps for infrastructure, real estate, and government projects.</p>
+      </div>
+      <div class="career-role">
+        <h4>Drone Pilot Trainer</h4>
+        <div class="meta">📍 Hyderabad &nbsp;·&nbsp; Part Time / Full Time</div>
+        <p>Train aspiring pilots in agri and survey drone operations. DGCA certification preferred.</p>
+      </div>
+      <div class="career-role">
+        <h4>Events & Media Specialist</h4>
+        <div class="meta">📍 Hyderabad &nbsp;·&nbsp; Project Based</div>
+        <p>Manage aerial videography, flower-drop events, LED screen, and banner drone operations for clients.</p>
+      </div>
+    </div>
+    <div class="career-form">
+      <h3>Apply Now</h3>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your name"/>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com"/>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+91 XXXXX XXXXX"/>
+      </div>
+      <div class="form-group">
+        <label>Role of Interest</label>
+        <select>
+          <option>Drone Pilot – Agriculture</option>
+          <option>Drone Pilot – Survey & Mapping</option>
+          <option>Drone Pilot Trainer</option>
+          <option>Events & Media Specialist</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Brief Introduction</label>
+        <textarea placeholder="Tell us about yourself and your experience..."></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%;" onclick="alert('Application submitted! We will contact you soon.')">Submit Application</button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="section-label">Contact Us</div>
+  <h2>Let's <em>Connect</em></h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p class="section-desc">Whether you're a farmer, event organizer, or aspiring pilot — reach out and we'll craft the right solution for you.</p>
+      <div class="contact-item">
+        <span class="icon">📍</span>
+        <div><h4>Location</h4><p>Hyderabad, Telangana, India</p></div>
+      </div>
+      <div class="contact-item">
+        <span class="icon">📞</span>
+        <div><h4>Phone</h4><p>+91 XXXXX XXXXX<br/><span style="font-size:.78rem;color:var(--muted);">Mon–Sat, 9 AM – 6 PM</span></p></div>
+      </div>
+      <div class="contact-item">
+        <span class="icon">📧</span>
+        <div><h4>Email</h4><p>info@srivignarajadrones.com</p></div>
+      </div>
+      <div class="contact-item">
+        <span class="icon">🌐</span>
+        <div><h4>Follow Us</h4><p>@SriVignaRajaDrones on Instagram, YouTube & Facebook</p></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>Send a Message</h3>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" placeholder="Your full name"/>
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="tel" placeholder="+91 XXXXX XXXXX"/>
+      </div>
+      <div class="form-group">
+        <label>I'm inquiring about</label>
+        <select>
+          <option>Agri Spraying / Crop Monitoring</option>
+          <option>Events – Flower Dropping</option>
+          <option>Events – LED Display / Videography</option>
+          <option>Aerial Survey & Mapping</option>
+          <option>Drone Pilot Training</option>
+          <option>Career / Partnership</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us more about your requirement..."></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%;" onclick="alert('Message sent! We will reach out shortly.')">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo-text">🚁 Sri Vigna Raja Drones Pvt. Ltd.</div>
+      <p>Hyderabad's premier drone technology firm — delivering precision-driven aerial solutions for agriculture, events, and surveying.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Agri-Tech Solutions</a></li>
+        <li><a href="#services">Aerial Videography</a></li>
+        <li><a href="#services">Flower Dropping</a></li>
+        <li><a href="#services">Survey & Mapping</a></li>
+        <li><a href="#services">Pilot Training</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#career">Careers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Actions</h5>
+      <ul>
+        <li><a href="#contact">Book Spraying</a></li>
+        <li><a href="#contact">Event Quote</a></li>
+        <li><a href="#contact">Join Training</a></li>
+        <li><a href="#career">Apply Now</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 <span class="brand-accent">Sri Vigna Raja Drones Private Limited</span>. All Rights Reserved. Hyderabad, India.</p>
+    <p style="font-family:'Space Mono',monospace; font-size:.7rem;">DGCA Compliant · Precision Aerial Solutions</p>
+  </div>
+</footer>
+
+</body>
+</html>
